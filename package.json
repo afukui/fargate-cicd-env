@@ -1,0 +1,20 @@
+{
+  "name": "fargate-cicd-env",
+  "version": "0.1.0",
+  "bin": {
+    "fargate-cicd-env": "bin/fargate-cicd-env.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "^8.9.4",
+    "typescript": "^3.1.2",
+    "aws-cdk": "^0.22.0"
+  },
+  "dependencies": {
+    "@aws-cdk/cdk": "^0.22.0"
+  }
+}
