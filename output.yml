@@ -11,234 +11,234 @@ Resources:
           Value: FargateCicdEnvStack/MyVpc
     Metadata:
       aws:cdk:path: FargateCicdEnvStack/MyVpc/Resource
-  MyVpcPublicSubnet1SubnetF6608456:
+  MyVpcpubSubnet1SubnetC19C9C3E:
     Type: AWS::EC2::Subnet
     Properties:
-      CidrBlock: 10.0.0.0/18
+      CidrBlock: 10.0.0.0/24
       VpcId:
         Ref: MyVpcF9F0CA6F
       AvailabilityZone: ap-northeast-1a
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
-          Value: FargateCicdEnvStack/MyVpc/PublicSubnet1
+          Value: FargateCicdEnvStack/MyVpc/pubSubnet1
         - Key: aws-cdk:subnet-name
-          Value: Public
+          Value: pub
         - Key: aws-cdk:subnet-type
           Value: Public
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet1/Subnet
-  MyVpcPublicSubnet1RouteTableC46AB2F4:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet1/Subnet
+  MyVpcpubSubnet1RouteTable012226D0:
     Type: AWS::EC2::RouteTable
     Properties:
       VpcId:
         Ref: MyVpcF9F0CA6F
       Tags:
         - Key: Name
-          Value: FargateCicdEnvStack/MyVpc/PublicSubnet1
+          Value: FargateCicdEnvStack/MyVpc/pubSubnet1
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet1/RouteTable
-  MyVpcPublicSubnet1RouteTableAssociation2ECEE1CB:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet1/RouteTable
+  MyVpcpubSubnet1RouteTableAssociation6226153B:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       RouteTableId:
-        Ref: MyVpcPublicSubnet1RouteTableC46AB2F4
+        Ref: MyVpcpubSubnet1RouteTable012226D0
       SubnetId:
-        Ref: MyVpcPublicSubnet1SubnetF6608456
+        Ref: MyVpcpubSubnet1SubnetC19C9C3E
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet1/RouteTableAssociation
-  MyVpcPublicSubnet1DefaultRoute95FDF9EB:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet1/RouteTableAssociation
+  MyVpcpubSubnet1DefaultRouteA2DD0BC7:
     Type: AWS::EC2::Route
     Properties:
       RouteTableId:
-        Ref: MyVpcPublicSubnet1RouteTableC46AB2F4
+        Ref: MyVpcpubSubnet1RouteTable012226D0
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId:
         Ref: MyVpcIGW5C4A4F63
     DependsOn:
       - MyVpcVPCGW488ACE0D
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet1/DefaultRoute
-  MyVpcPublicSubnet1EIP096967CB:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet1/DefaultRoute
+  MyVpcpubSubnet1EIPFE8DC70C:
     Type: AWS::EC2::EIP
     Properties:
       Domain: vpc
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet1/EIP
-  MyVpcPublicSubnet1NATGatewayAD3400C1:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet1/EIP
+  MyVpcpubSubnet1NATGateway0AF1143D:
     Type: AWS::EC2::NatGateway
     Properties:
       AllocationId:
         Fn::GetAtt:
-          - MyVpcPublicSubnet1EIP096967CB
+          - MyVpcpubSubnet1EIPFE8DC70C
           - AllocationId
       SubnetId:
-        Ref: MyVpcPublicSubnet1SubnetF6608456
+        Ref: MyVpcpubSubnet1SubnetC19C9C3E
       Tags:
         - Key: Name
-          Value: FargateCicdEnvStack/MyVpc/PublicSubnet1
+          Value: FargateCicdEnvStack/MyVpc/pubSubnet1
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet1/NATGateway
-  MyVpcPublicSubnet2Subnet492B6BFB:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet1/NATGateway
+  MyVpcpubSubnet2Subnet4A377027:
     Type: AWS::EC2::Subnet
     Properties:
-      CidrBlock: 10.0.64.0/18
+      CidrBlock: 10.0.1.0/24
       VpcId:
         Ref: MyVpcF9F0CA6F
       AvailabilityZone: ap-northeast-1c
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
-          Value: FargateCicdEnvStack/MyVpc/PublicSubnet2
+          Value: FargateCicdEnvStack/MyVpc/pubSubnet2
         - Key: aws-cdk:subnet-name
-          Value: Public
+          Value: pub
         - Key: aws-cdk:subnet-type
           Value: Public
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet2/Subnet
-  MyVpcPublicSubnet2RouteTable1DF17386:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet2/Subnet
+  MyVpcpubSubnet2RouteTableFDBED96C:
     Type: AWS::EC2::RouteTable
     Properties:
       VpcId:
         Ref: MyVpcF9F0CA6F
       Tags:
         - Key: Name
-          Value: FargateCicdEnvStack/MyVpc/PublicSubnet2
+          Value: FargateCicdEnvStack/MyVpc/pubSubnet2
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet2/RouteTable
-  MyVpcPublicSubnet2RouteTableAssociation227DE78D:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet2/RouteTable
+  MyVpcpubSubnet2RouteTableAssociation77C63E2B:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       RouteTableId:
-        Ref: MyVpcPublicSubnet2RouteTable1DF17386
+        Ref: MyVpcpubSubnet2RouteTableFDBED96C
       SubnetId:
-        Ref: MyVpcPublicSubnet2Subnet492B6BFB
+        Ref: MyVpcpubSubnet2Subnet4A377027
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet2/RouteTableAssociation
-  MyVpcPublicSubnet2DefaultRoute052936F6:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet2/RouteTableAssociation
+  MyVpcpubSubnet2DefaultRouteB93DA352:
     Type: AWS::EC2::Route
     Properties:
       RouteTableId:
-        Ref: MyVpcPublicSubnet2RouteTable1DF17386
+        Ref: MyVpcpubSubnet2RouteTableFDBED96C
       DestinationCidrBlock: 0.0.0.0/0
       GatewayId:
         Ref: MyVpcIGW5C4A4F63
     DependsOn:
       - MyVpcVPCGW488ACE0D
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet2/DefaultRoute
-  MyVpcPublicSubnet2EIP8CCBA239:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet2/DefaultRoute
+  MyVpcpubSubnet2EIP4B124ADF:
     Type: AWS::EC2::EIP
     Properties:
       Domain: vpc
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet2/EIP
-  MyVpcPublicSubnet2NATGateway91BFBEC9:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet2/EIP
+  MyVpcpubSubnet2NATGateway0DE432EA:
     Type: AWS::EC2::NatGateway
     Properties:
       AllocationId:
         Fn::GetAtt:
-          - MyVpcPublicSubnet2EIP8CCBA239
+          - MyVpcpubSubnet2EIP4B124ADF
           - AllocationId
       SubnetId:
-        Ref: MyVpcPublicSubnet2Subnet492B6BFB
+        Ref: MyVpcpubSubnet2Subnet4A377027
       Tags:
         - Key: Name
-          Value: FargateCicdEnvStack/MyVpc/PublicSubnet2
+          Value: FargateCicdEnvStack/MyVpc/pubSubnet2
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PublicSubnet2/NATGateway
-  MyVpcPrivateSubnet1Subnet5057CF7E:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/pubSubnet2/NATGateway
+  MyVpcpriSubnet1SubnetD706DFB2:
     Type: AWS::EC2::Subnet
     Properties:
-      CidrBlock: 10.0.128.0/18
+      CidrBlock: 10.0.2.0/24
       VpcId:
         Ref: MyVpcF9F0CA6F
       AvailabilityZone: ap-northeast-1a
       MapPublicIpOnLaunch: false
       Tags:
         - Key: Name
-          Value: FargateCicdEnvStack/MyVpc/PrivateSubnet1
+          Value: FargateCicdEnvStack/MyVpc/priSubnet1
         - Key: aws-cdk:subnet-name
-          Value: Private
+          Value: pri
         - Key: aws-cdk:subnet-type
           Value: Private
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PrivateSubnet1/Subnet
-  MyVpcPrivateSubnet1RouteTable8819E6E2:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/priSubnet1/Subnet
+  MyVpcpriSubnet1RouteTableD1D2EA5B:
     Type: AWS::EC2::RouteTable
     Properties:
       VpcId:
         Ref: MyVpcF9F0CA6F
       Tags:
         - Key: Name
-          Value: FargateCicdEnvStack/MyVpc/PrivateSubnet1
+          Value: FargateCicdEnvStack/MyVpc/priSubnet1
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PrivateSubnet1/RouteTable
-  MyVpcPrivateSubnet1RouteTableAssociation56D38C7E:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/priSubnet1/RouteTable
+  MyVpcpriSubnet1RouteTableAssociationE5CC1472:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       RouteTableId:
-        Ref: MyVpcPrivateSubnet1RouteTable8819E6E2
+        Ref: MyVpcpriSubnet1RouteTableD1D2EA5B
       SubnetId:
-        Ref: MyVpcPrivateSubnet1Subnet5057CF7E
+        Ref: MyVpcpriSubnet1SubnetD706DFB2
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PrivateSubnet1/RouteTableAssociation
-  MyVpcPrivateSubnet1DefaultRouteA8CDE2FA:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/priSubnet1/RouteTableAssociation
+  MyVpcpriSubnet1DefaultRouteDB09A32D:
     Type: AWS::EC2::Route
     Properties:
       RouteTableId:
-        Ref: MyVpcPrivateSubnet1RouteTable8819E6E2
+        Ref: MyVpcpriSubnet1RouteTableD1D2EA5B
       DestinationCidrBlock: 0.0.0.0/0
       NatGatewayId:
-        Ref: MyVpcPublicSubnet1NATGatewayAD3400C1
+        Ref: MyVpcpubSubnet1NATGateway0AF1143D
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PrivateSubnet1/DefaultRoute
-  MyVpcPrivateSubnet2Subnet0040C983:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/priSubnet1/DefaultRoute
+  MyVpcpriSubnet2Subnet9750489B:
     Type: AWS::EC2::Subnet
     Properties:
-      CidrBlock: 10.0.192.0/18
+      CidrBlock: 10.0.3.0/24
       VpcId:
         Ref: MyVpcF9F0CA6F
       AvailabilityZone: ap-northeast-1c
       MapPublicIpOnLaunch: false
       Tags:
         - Key: Name
-          Value: FargateCicdEnvStack/MyVpc/PrivateSubnet2
+          Value: FargateCicdEnvStack/MyVpc/priSubnet2
         - Key: aws-cdk:subnet-name
-          Value: Private
+          Value: pri
         - Key: aws-cdk:subnet-type
           Value: Private
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PrivateSubnet2/Subnet
-  MyVpcPrivateSubnet2RouteTableCEDCEECE:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/priSubnet2/Subnet
+  MyVpcpriSubnet2RouteTableBCF13437:
     Type: AWS::EC2::RouteTable
     Properties:
       VpcId:
         Ref: MyVpcF9F0CA6F
       Tags:
         - Key: Name
-          Value: FargateCicdEnvStack/MyVpc/PrivateSubnet2
+          Value: FargateCicdEnvStack/MyVpc/priSubnet2
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PrivateSubnet2/RouteTable
-  MyVpcPrivateSubnet2RouteTableAssociation86A610DA:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/priSubnet2/RouteTable
+  MyVpcpriSubnet2RouteTableAssociation01D63129:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
       RouteTableId:
-        Ref: MyVpcPrivateSubnet2RouteTableCEDCEECE
+        Ref: MyVpcpriSubnet2RouteTableBCF13437
       SubnetId:
-        Ref: MyVpcPrivateSubnet2Subnet0040C983
+        Ref: MyVpcpriSubnet2Subnet9750489B
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PrivateSubnet2/RouteTableAssociation
-  MyVpcPrivateSubnet2DefaultRoute9CE96294:
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/priSubnet2/RouteTableAssociation
+  MyVpcpriSubnet2DefaultRoute60AECE7E:
     Type: AWS::EC2::Route
     Properties:
       RouteTableId:
-        Ref: MyVpcPrivateSubnet2RouteTableCEDCEECE
+        Ref: MyVpcpriSubnet2RouteTableBCF13437
       DestinationCidrBlock: 0.0.0.0/0
       NatGatewayId:
-        Ref: MyVpcPublicSubnet2NATGateway91BFBEC9
+        Ref: MyVpcpubSubnet2NATGateway0DE432EA
     Metadata:
-      aws:cdk:path: FargateCicdEnvStack/MyVpc/PrivateSubnet2/DefaultRoute
+      aws:cdk:path: FargateCicdEnvStack/MyVpc/priSubnet2/DefaultRoute
   MyVpcIGW5C4A4F63:
     Type: AWS::EC2::InternetGateway
     Properties:
@@ -314,7 +314,7 @@ Resources:
           - MyFargateServiceTaskDefExecutionRoleD6305504
           - Arn
       Family: FargateCicdEnvStackMyFargateServiceTaskDefFEFD8811
-      Memory: "1024"
+      Memory: 1GB
       NetworkMode: awsvpc
       RequiresCompatibilities:
         - FARGATE
@@ -374,7 +374,7 @@ Resources:
       DeploymentConfiguration:
         MaximumPercent: 200
         MinimumHealthyPercent: 50
-      DesiredCount: 1
+      DesiredCount: 2
       LaunchType: FARGATE
       LoadBalancers:
         - ContainerName: web
@@ -389,8 +389,8 @@ Resources:
                 - MyFargateServiceSecurityGroup7016792A
                 - GroupId
           Subnets:
-            - Ref: MyVpcPrivateSubnet1Subnet5057CF7E
-            - Ref: MyVpcPrivateSubnet2Subnet0040C983
+            - Ref: MyVpcpriSubnet1SubnetD706DFB2
+            - Ref: MyVpcpriSubnet2Subnet9750489B
     DependsOn:
       - MyFargateServiceLBPublicListener61A1042F
     Metadata:
@@ -438,8 +438,8 @@ Resources:
             - MyFargateServiceLBSecurityGroup6FBF16F1
             - GroupId
       Subnets:
-        - Ref: MyVpcPublicSubnet1SubnetF6608456
-        - Ref: MyVpcPublicSubnet2Subnet492B6BFB
+        - Ref: MyVpcpubSubnet1SubnetC19C9C3E
+        - Ref: MyVpcpubSubnet2Subnet4A377027
       Type: application
     DependsOn:
       - MyVpcIGW5C4A4F63
