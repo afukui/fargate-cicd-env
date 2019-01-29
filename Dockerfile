@@ -24,9 +24,9 @@ ENV PATH=/home/nvm/.nvm/versions/node/v${NODE_VERSION}/bin:$PATH
 
 # repository task
 WORKDIR /home/nvm
-COPY . fargate-cicd-env
-RUN sudo chown nvm:nvm -R fargate-cicd-env
-WORKDIR /home/nvm/fargate-cicd-env
+COPY . app
+RUN sudo chown nvm:nvm -R app
+WORKDIR /home/nvm/app
 RUN npm install
 RUN npm run build
 
