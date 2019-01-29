@@ -30,4 +30,4 @@ WORKDIR /home/nvm/fargate-cicd-env
 RUN npm install
 RUN npm run build
 
-ENTRYPOINT ["cdk"]
+CMD ["/bin/bash"]

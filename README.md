@@ -6,8 +6,8 @@ KEY=YOUR_ACCESS_KEY
 REGION=YOUR_DEFAULT_REGION
 
 docker build -t fargatecicdenvstack .
-docker run -it --rm -e AWS_SECRET_ACCESS_KEY=$SECRET -e AWS_ACCESS_KEY_ID=$KEY -e AWS_DEFAULT_REGION=$REGION fargatecicdenvstack:latest synth FargateCicdEnvStack
-docker run -it --rm -e AWS_SECRET_ACCESS_KEY=$SECRET -e AWS_ACCESS_KEY_ID=$KEY -e AWS_DEFAULT_REGION=$REGION fargatecicdenvstack:latest synth deploy
+docker run -it --rm -e AWS_SECRET_ACCESS_KEY=$SECRET -e AWS_ACCESS_KEY_ID=$KEY -e AWS_DEFAULT_REGION=$REGION fargatecicdenvstack:latest cdk synth FargateCicdEnvStack
+docker run -it --rm -e AWS_SECRET_ACCESS_KEY=$SECRET -e AWS_ACCESS_KEY_ID=$KEY -e AWS_DEFAULT_REGION=$REGION fargatecicdenvstack:latest cdk synth deploy
 ```
 
 cdk eploy will show preview.
